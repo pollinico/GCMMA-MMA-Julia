@@ -224,8 +224,8 @@ function subsolv(m,n,epsimin,low,upp,alfa,beta,p0,q0,P,Q,a0,a,b,c,d)
         steg = 2*steg
         end
         if ittt > 198
-            epsi
-            ittt
+            println("epsi: ", epsi)
+            println("ittt", ittt)
         end
         epsi = 0.1*epsi
     end
