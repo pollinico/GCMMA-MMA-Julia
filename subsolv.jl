@@ -56,16 +56,16 @@ function subsolv(m,n,epsimin,low,upp,alfa,beta,p0,q0,P,Q,a0,a,b,c,d)
     epsvecn = epsi*een
     epsvecm = epsi*eem
     x = 0.5*(alfa+beta)
-    y = eem
+    y = copy(eem)
     z = 1
-    lam = eem
+    lam = copy(eem)
     xsi = een./(x-alfa)
     xsi = max.(xsi,een)
     eta = een./(beta-x)
     eta = max.(eta,een)
     mu  = max.(eem,0.5*c)
     zet = 1
-    s = eem
+    s = copy(eem)
     itera = 0
     while epsi > epsimin
         epsvecn = epsi*een
@@ -171,15 +171,15 @@ function subsolv(m,n,epsimin,low,upp,alfa,beta,p0,q0,P,Q,a0,a,b,c,d)
             stminv = max(stmalbexx,1)
             steg = 1/stminv
         #
-            xold   =   x
-            yold   =   y
-            zold   =   z
-            lamold =  lam
-            xsiold =  xsi
-            etaold =  eta
-            muold  =  mu
-            zetold =  zet
-            sold   =   s
+            xold   =  copy(x)
+            yold   =  copy(y)
+            zold   =  copy(z)
+            lamold =  copy(lam)
+            xsiold =  copy(xsi)
+            etaold =  copy(eta)
+            muold  =  copy(mu)
+            zetold =  copy(zet)
+            sold   =  copy(s)
         #
             itto = 0
             resinew = 2*residunorm
@@ -193,7 +193,7 @@ function subsolv(m,n,epsimin,low,upp,alfa,beta,p0,q0,P,Q,a0,a,b,c,d)
                 eta = etaold + steg*deta
                 mu  = muold  + steg*dmu
                 zet = zetold + steg*dzet
-                s   =   sold + steg*ds
+                s   = sold + steg*ds
                 ux1 = upp-x
                 xl1 = x-low
                 ux2 = ux1.*ux1
@@ -219,7 +219,7 @@ function subsolv(m,n,epsimin,low,upp,alfa,beta,p0,q0,P,Q,a0,a,b,c,d)
                 resinew = sqrt(residu'*residu)
                 steg = steg/2
             end
-        residunorm=resinew
+        residunorm = copy(resinew)
         residumax = maximum(abs.(residu))
         steg = 2*steg
         end
@@ -229,15 +229,15 @@ function subsolv(m,n,epsimin,low,upp,alfa,beta,p0,q0,P,Q,a0,a,b,c,d)
         end
         epsi = 0.1*epsi
     end
-    xmma   =   x
-    ymma   =   y
-    zmma   =   z
-    lamma =  lam
-    xsimma =  xsi
-    etamma =  eta
-    mumma  =  mu
-    zetmma =  zet
-    smma   =   s
+    xmma   = copy(x)
+    ymma   = copy(y)
+    zmma   = copy(z)
+    lamma  = copy(lam)
+    xsimma = copy(xsi)
+    etamma = copy(eta)
+    mumma  = copy(mu)
+    zetmma = copy(zet)
+    smma   = copy(s)
     #-------------------------------------------------------------
     return xmma,ymma,zmma,lamma,xsimma,etamma,mumma,zetmma,smma
 end

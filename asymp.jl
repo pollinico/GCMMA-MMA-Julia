@@ -41,7 +41,7 @@
 #
 function asymp(outeriter,n,xval,xold1,xold2,xmin,xmax,low,upp,raa0,raa,raa0eps,raaeps,df0dx,dfdx);
     #
-    eeen=ones(n)
+    eeen = ones(n)
     xmami = xmax - xmin
     xmamieps = 0.00001*eeen
     xmami = max.(xmami,xmamieps)
@@ -54,7 +54,7 @@ function asymp(outeriter,n,xval,xold1,xold2,xmin,xmax,low,upp,raa0,raa,raa0eps,r
         upp = xval + 0.5*xmami
     else
         xxx = (xval-xold1).*(xold1-xold2)
-        factor = eeen
+        factor = copy(eeen)
         factor[findall(x -> x>0, xxx)] .= 1.2
         factor[findall(x -> x<0, xxx)] .= 0.7
         low = xval - factor.*(xold1 - low)

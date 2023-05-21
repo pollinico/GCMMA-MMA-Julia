@@ -66,6 +66,7 @@ outit = 0
 while (kktnorm > kkttol) & (outit < maxoutit)
     global kktnorm, outit, outeriter, outvector1, outvector2, xmin, xmax, xval, low, upp, c, d, a0, a, xold1, xold2
     global f0val, df0dx, fval, dfdx
+    global xmma,ymma,zmma,lam,xsi,eta,mu,zet,s,low,upp
     outit   = outit+1
     outeriter = outeriter+1
     #### The MMA subproblem is solved at the point xval:

@@ -111,7 +111,7 @@ function mmasub(m,n,iter,xval,xmin,xmax,xold1,xold2,f0val,df0dx,fval,dfdx,low,up
         upp = xval + asyinit*(xmax-xmin)
     else
         zzz = (xval-xold1).*(xold1-xold2)
-        factor = eeen
+        factor = copy(eeen)
         factor[findall(x -> x>0, zzz)] .= asyincr
         factor[findall(x -> x<0, zzz)] .= asydecr
         low = xval - factor.*(xold1 - low)
@@ -150,8 +150,8 @@ function mmasub(m,n,iter,xval,xmin,xmax,xold1,xold2,f0val,df0dx,fval,dfdx,low,up
     uxinv = eeen./ux1
     xlinv = eeen./xl1
     #
-    p0 = zeron
-    q0 = zeron
+    p0 = copy(zeron)
+    q0 = copy(zeron)
     p0 = max.(df0dx,0)
     q0 = max.(-df0dx,0)
     pq0 = 0.001*(p0 + q0) + raa0*xmamiinv

@@ -70,8 +70,8 @@ function gcmmasub(m,n,iter,epsimin,xval,xmin,xmax,low,upp,raa0,raa,f0val,df0dx,f
     uxinv = eeen./ux1
     xlinv = eeen./xl1
     #
-    p0 = zeron
-    q0 = zeron
+    p0 = copy(zeron)
+    q0 = copy(zeron)
     p0 = max.(df0dx,0)
     q0 = max.(-df0dx,0)
     pq0 = p0 + q0
