@@ -1,3 +1,15 @@
+########################################################################################################
+### GCMMA-MMA-Julia                                                                                  ### 
+###                                                                                                  ###
+### This file is part of GCMMA-MMA-Julia. GCMMA-MMA-Julia is licensed under the terms of GNU         ###
+### General Public License as published by the Free Software Foundation. For more information and    ###
+### the LICENSE file, see <https://github.com/arjendeetman/GCMMA-MMA-Python>.                        ###
+###                                                                                                  ###
+### The orginal work is written by Krister Svanberg in MATLAB.                                       ###
+### This is the Julia version of the code written by Nicolò Pollini.                                 ###
+### version 18-05-2023                                                                               ###
+########################################################################################################
+
 #-------------------------------------------------------------
 #
 #    Copyright (C) 2007 Krister Svanberg
